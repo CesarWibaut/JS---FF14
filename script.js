@@ -1,4 +1,4 @@
-function afficher(data, div){
+function afficherNiveaux(data, div){
     var table = $(div +" #CombatJobs");
     var res = "";
     var total=0;
@@ -24,8 +24,7 @@ function oui(div, id){
         success: function (response) {
             console.log(response);
             $(div +" img").attr("src",response.data.avatar);
-            afficher(response.data.classjobs, div);
+            afficherNiveaux(response.data.classjobs, div);
         }
     });
 }
-
