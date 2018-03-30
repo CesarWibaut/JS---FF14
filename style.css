@@ -1,6 +1,6 @@
 table{
     text-align: center;
-    float: left;
+    margin:auto;
     border-collapse: collapse;
     width: 50%;
     size: 90%;
@@ -12,8 +12,10 @@ td, th{
     font:small;
 }
 
-h1, h2{
+h1{
     text-align: center;
+    float:left;
+    margin-left:40%
 }
 
 html{
@@ -23,8 +25,8 @@ html{
 .score{
     border-style: solid;
     border-radius: 10px;
-    float : right;
-    margin-right: 10%;
+    float : inherit;
+    margin : 4% 30%;
     padding:10px;
 }
 
@@ -35,3 +37,16 @@ tr:nth-child(even){
 .nop{
     text-align: left;
 }
+
+img{
+    float:left;
+    margin-bottom: 5%;
+    margin-right:30%;
+    margin-left:20px;
+    margin-top:10px;
+    width:50px;
+}
+h2{
+    text-align: center;
+}
+

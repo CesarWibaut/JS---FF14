@@ -1,5 +1,5 @@
-function afficher(data){
-    var table = $("#CombatJobs");
+function afficher(data, div){
+    var table = $(div +" #CombatJobs");
     var res = "";
     var total=0;
     var nb = 0;
@@ -8,21 +8,24 @@ function afficher(data){
         res += "<td><div class=nop>" + data[i].name + "</div></td>";
         res += "<td>" + data[i].level + "</td>";
         total += data[i].level;
-        res += "<td>" + data[i].exp.total_percent + "</td>";
+        res += "<td>" + Math.floor(data[i].exp.total_percent) + "</td>";
         res += "</td>";
         nb++;
     }
     table.append(res);
-    $("#total").append(total);
-    $("#moyenne").append(total/nb);
+    $(div + " #total").append(total);
+    $(div + " #moyenne").append(total/nb);
 }
-
-$.ajax({
-    type: "GET",
-    url: "https://api.xivdb.com/character/17495202?data=achievements_possibles",
-    dataType: "json",
-    success: function (response) {
-        afficher(response.data.classjobs);
-    }
-});
+function oui(div, id){
+    $.ajax({
+        type: "GET",
+        url: "https://api.xivdb.com/character/"+id+"?data=achievements_possibles", 
+        dataType: "json",
+        success: function (response) {
+            console.log(response);
+            $(div +" img").attr("src",response.data.avatar);
+            afficher(response.data.classjobs, div);
+        }
+    });
+}
 
